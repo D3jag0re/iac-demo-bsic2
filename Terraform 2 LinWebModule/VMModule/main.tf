@@ -1,7 +1,7 @@
 # Create public IPs
 resource "azurerm_public_ip" "myterraformpublicip" {
   name                = "tmp_test_env_publicip"
-  location            = "West US 2"
+  location            = var.location
   resource_group_name = var.rgname
   allocation_method   = "Dynamic"
 
@@ -13,7 +13,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "myterraformnsg" {
   name                = "myNetworkSecurityGroup"
-  location            = "West US 2"
+  location            = var.location
   resource_group_name = var.rgname
 
   security_rule {

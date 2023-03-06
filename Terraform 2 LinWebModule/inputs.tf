@@ -1,3 +1,13 @@
+variable "rgname" {
+    type = string
+    description = "Existing RG"
+}
+
+variable "location" {
+    type = string
+    description = "Location"
+}
+
 # subnet vars
 variable "subname" {
     type = string
@@ -9,8 +19,7 @@ variable "vnetname" {
     description = "existing vnet"
 }
 
-variable "vnetrg" {
+variable "vmname" {
     type = string
-    description = "The name of the vnet resource group"
+    description = "The name of the VM"
 }
-   
