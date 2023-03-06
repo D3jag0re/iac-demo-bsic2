@@ -1,4 +1,4 @@
-#This will be used to spin up a new VM in an existing RG, calling on Ansible for config Management.
+#This will be used to spin up all new required resources.
 terraform {
   required_providers {
     azurerm = {
@@ -46,7 +46,7 @@ resource "azurerm_network_security_group" "demonsg" {
 # Create Subnet 
 resource "azurerm_subnet" "demosubnet" {
   name                 = var.subname
-  virtual_network_name = var.vnetname
+  virtual_network_name = azurerm_virtual_network.demovnet.name 
   resource_group_name  = azurerm_resource_group.demorg.name
   address_prefixes     = ["10.0.1.0/24"]
 }
@@ -65,7 +65,7 @@ resource "azurerm_subnet_network_security_group_association" "example" {
 resource "azurerm_public_ip" "winbasicpublicip" {
   name                = "tmp_test_env_publicip"
   location            = var.location
-  resource_group_name = var.rgname
+  resource_group_name = azurerm_resource_group.demorg.name 
   allocation_method   = "Dynamic"
 
   tags = {
@@ -106,21 +106,21 @@ resource "azurerm_network_interface" "winbasicnic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.demosubnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
+    public_ip_address_id          = azurerm_public_ip.winbasicpublicip.id
   }
 }
 
 #Create WinBasicVM 
 
-resource "azurerm_windows_virtual_machine" "example" {
-  name                = "example-machine"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
+resource "azurerm_windows_virtual_machine" "winbasicvm" {
+  name                = var.vmname
+  resource_group_name = azurerm_resource_group.demorg.name
+  location            = azurerm_resource_group.demorg.location
   size                = "Standard_F2"
-  admin_username      = "adminuser"
-  admin_password      = "P@$$w0rd1234!"
+  admin_username      = var.admin_username
+  admin_password      = var.admin_password
   network_interface_ids = [
-    azurerm_network_interface.example.id,
+    azurerm_network_interface.winbasicnic.id,
   ]
 
   os_disk {

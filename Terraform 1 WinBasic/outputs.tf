@@ -1,5 +1,5 @@
 output "vm_id_out" {
-  value = azurerm_linux_virtual_machine.winbasicvm.id
+  value = azurerm_windows_virtual_machine.winbasicvm.id
 }
 
 

@@ -45,3 +45,8 @@ variable "admin_username" {
     type = string
     description = "Username for Local Admin"
 }
+
+variable "admin_password" {
+    type = string
+    description = "Password for Local Admin"
+}
