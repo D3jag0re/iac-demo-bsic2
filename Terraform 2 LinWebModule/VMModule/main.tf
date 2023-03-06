@@ -1,6 +1,6 @@
 # Create public IPs
 resource "azurerm_public_ip" "myterraformpublicip" {
-  name                = "tmp_test_env_publicip"
+  name                = "tmp_lin_publicip"
   location            = var.location
   resource_group_name = var.rgname
   allocation_method   = "Dynamic"
@@ -78,7 +78,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
   os_disk {
     name                 = "myOsDisk"
     caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
+    storage_account_type = "Standard_LRS"
   }
 
   source_image_reference {

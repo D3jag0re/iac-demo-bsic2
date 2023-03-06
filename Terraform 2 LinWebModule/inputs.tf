@@ -23,3 +23,8 @@ variable "vmname" {
     type = string
     description = "The name of the VM"
 }
+
+variable "admin_username" {
+    type = string
+    description = "Name of the local admin"
+}

@@ -22,21 +22,20 @@ provider "azurerm" {
 #Create Resource Group
 data "azurerm_resource_group" "resourcegroup" {
   name     = var.rgname
-  location = var.location
 }
 
 #Attach existing Subnet
 data "azurerm_subnet" "vmsubnet" {
   name                 = var.subname
   virtual_network_name = var.vnetname
-  resource_group_name  = azurerm_resource_group.resourcegroup.name 
+  resource_group_name  = data.azurerm_resource_group.resourcegroup.name
 }
 
 #Create VM using VM Module
 module "vm" {
   source   = "./VMModule"
-  rgname   = azurerm_resource_group.resourcegroup.name
-  location = azurerm_resource_group.resourcegroup.location
+  rgname   = data.azurerm_resource_group.resourcegroup.name
+  location = data.azurerm_resource_group.resourcegroup.location
   vmname   = var.vmname
   size     = "Standard_F2"
   localadmin = var.admin_username
