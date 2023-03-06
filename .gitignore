@@ -1,1 +1,12 @@
+var.tfvars
+*.tfvars
+tfplan
+tfplan.txt
+.terraform/**
+terraform/**
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.pem 
+IaC Demo.code-workspace
 *.code-workspace
