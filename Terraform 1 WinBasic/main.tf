@@ -51,7 +51,7 @@ resource "azurerm_subnet" "demosubnet" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
-# Associate NSG with the subnet
+# Associate NSG with the Subnet
 /*
 resource "azurerm_subnet_network_security_group_association" "example" {
   subnet_id                 = azurerm_subnet.demosubnet.id
@@ -59,6 +59,11 @@ resource "azurerm_subnet_network_security_group_association" "example" {
 }
 */
 
+# Connect the security group to the network interface
+resource "azurerm_network_interface_security_group_association" "nsg" {
+  network_interface_id      = azurerm_network_interface.winbasicnic.id
+  network_security_group_id = azurerm_network_security_group.demonsg.id
+}
 ##########################################
 
 # Create public IPs
