@@ -19,7 +19,7 @@ provider "azurerm" {
 }
 
 
-#Create Resource Group
+#Attach Existing Resource Group
 data "azurerm_resource_group" "resourcegroup" {
   name     = var.rgname
 }
