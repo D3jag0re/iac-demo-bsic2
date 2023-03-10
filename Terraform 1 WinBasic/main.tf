@@ -78,29 +78,6 @@ resource "azurerm_public_ip" "winbasicpublicip" {
   }
 }
 
-# Create Network Security Group and rule
-/*
-resource "azurerm_network_security_group" "myterraformnsg" {
-  name                = "myNetworkSecurityGroup"
-  location            = var.location
-  resource_group_name = var.rgname
-  security_rule {
-    name                       = "SSH"
-    priority                   = 1001
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-  tags = {
-    environment = "tmp_test_env"
-  }
-}
-*/
-
 #Create Network Interface
 resource "azurerm_network_interface" "winbasicnic" {
   name                = var.niname
