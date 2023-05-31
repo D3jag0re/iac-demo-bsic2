@@ -1,6 +1,6 @@
 ## IaC Demo for VCC 
 
-This Demo will show the basics of using an Infrastructure as Code tool (Terraform) as well as a Configuration Management Tool (Ansible)
+This Demo will show the basics of using an Infrastructure as Code tool (Terraform) as well as a Configuration Management Tool (Ansible) in Azure.
 
 * Terraform 1 WinBasic will build everything from scratch, a Resource Group / Vnet etc. as well as a basic Windows VM all in one file. The demo for this will conclude with RDP access.
 

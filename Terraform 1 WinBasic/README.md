@@ -28,3 +28,7 @@ Steps:
     - run 'az account set --subscription <subscription_name>' to set the subscription 
     - for further confirmation on the selected subscription run 'az account show'
 
+5. Run 'tf plan' 
+
+6. If no errors occur, run 'tf apply'
+
