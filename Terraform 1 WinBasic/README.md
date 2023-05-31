@@ -7,15 +7,15 @@ The goal of 'WinBasic' is to spin up the resources, and be able to RDP in.
 Steps: 
 
 * You will need to create a .tfvars file (ex. terraform.tfvars) in this folder with the following parameters (as defined in the input file):
- - rgname 
- - vnetname 
- - subname 
- - sgname 
- - vmname
- - niname 
- - location 
- - admin_username 
- - admin_password 
+    - rgname 
+    - vnetname 
+    - subname 
+    - sgname 
+    - vmname
+    - niname 
+    - location 
+    - admin_username 
+    - admin_password 
 
 Ex. rgname = "resourcegroup1" 
 
