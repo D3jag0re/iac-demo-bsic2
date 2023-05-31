@@ -17,12 +17,14 @@ Steps:
     - admin_username 
     - admin_password 
 
-Ex. rgname = "resourcegroup1" 
+    Ex. rgname = "resourcegroup1" 
 
 * From the terminal, navigate to this folder.
+
 * Connect to your Azure environment using the Azure CLI with the command: az login
+
 * Set the Subscription you want to deploy the resources to:
- - run 'az account list -otable' to see a list of your subscriptions (isDef column shows the current subscription as True)
- - run 'az account set --subscription <subscription_name>' to set the subscription 
- - for further confirmation on the selected subscription run 'az account show'
+    - run 'az account list -otable' to see a list of your subscriptions (isDef column shows the current subscription as True)
+    - run 'az account set --subscription <subscription_name>' to set the subscription 
+    - for further confirmation on the selected subscription run 'az account show'
 
